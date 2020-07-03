@@ -16,15 +16,18 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<code.coverage.exclusions>
+			**/com/github/action/demo/DemoApplication.java
+		</code.coverage.exclusions>
 	</properties>
 
 
 <!--	<properties>-->
-<!--&lt;!&ndash;		<code.coverage.exclusions>&ndash;&gt;-->
-<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/controller/dto/**,&ndash;&gt;-->
-<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/entity/**,&ndash;&gt;-->
-<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/Application.java&ndash;&gt;-->
-<!--&lt;!&ndash;		</code.coverage.exclusions>&ndash;&gt;-->
+<!--		<code.coverage.exclusions>-->
+<!--			**/com/wkrzywiec/medium/noticeboard/controller/dto/**,-->
+<!--			**/com/wkrzywiec/medium/noticeboard/entity/**,-->
+<!--			**/com/wkrzywiec/medium/noticeboard/Application.java-->
+<!--		</code.coverage.exclusions>-->
 <!--	</properties>-->
 
 	<dependencies>
@@ -67,7 +70,7 @@
 			<properties>
 				<sonar.sources>.</sonar.sources>
 				<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
-				<!--<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>-->
+				<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
 				<sonar.projectKey>shubham5572_github-action-demo</sonar.projectKey>
 				<sonar.organization>shubham5572</sonar.organization>
 				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
