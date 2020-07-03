@@ -18,6 +18,15 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+
+<!--	<properties>-->
+<!--&lt;!&ndash;		<code.coverage.exclusions>&ndash;&gt;-->
+<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/controller/dto/**,&ndash;&gt;-->
+<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/entity/**,&ndash;&gt;-->
+<!--&lt;!&ndash;			**/com/wkrzywiec/medium/noticeboard/Application.java&ndash;&gt;-->
+<!--&lt;!&ndash;		</code.coverage.exclusions>&ndash;&gt;-->
+<!--	</properties>-->
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,14 +51,55 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+<!--	<build>-->
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
 
+
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<properties>
+				<sonar.sources>.</sonar.sources>
+				<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
+				<!--<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>-->
+				<sonar.projectKey>shubham5572_github-action-demo</sonar.projectKey>
+				<sonar.organization>shubham5572</sonar.organization>
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+
+	</profiles>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonarsource.scanner.maven</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+						<version>3.7.0.1746</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sonar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+<!--		</profile>-->
+<!--	</profiles>-->
 
 </project>
