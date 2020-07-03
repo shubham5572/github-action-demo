@@ -23,4 +23,4 @@ jobs:
     - name: Maven Package
       run: mvn -B clean package -DskipTests
     - name: Maven Verify
-      git run: mvn -B clean verify -Pintegration-test
+      run: mvn -B clean verify -Pintegration-test
