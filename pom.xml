@@ -99,7 +99,7 @@
 		<repository>
 			<id>github</id>
 			<name>Github-Action-Demo</name>
-			<url>https://maven.pkg.github.com/shubham5572</url>
+			<url>https://maven.pkg.github.com/shubham5572/github-action-demo</url>
 		</repository></distributionManagement>
 
 </project>
