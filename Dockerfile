@@ -7,5 +7,5 @@ RUN mvn -B -f pom.xml clean package -DskipTests
 
 FROM java:8-jdk-alpine
 COPY --from=build /workspace/target/*.jar app.jar
-EXPOSE 9090
+EXPOSE 8096
 ENTRYPOINT ["java","-jar","app.jar"]
