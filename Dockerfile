@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-8-alpine AS build
+FROM maven:3.6.3-8-jdk-alpine AS build
 RUN mkdir -p /workspace
 WORKDIR /workspace
 COPY pom.xml /workspace
