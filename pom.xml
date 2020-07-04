@@ -96,4 +96,11 @@
 <!--		</profile>-->
 <!--	</profiles>-->
 
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>NoticeBoard Simple CRUD application</name>
+			<url>https://maven.pkg.github.com/github-aciton/demo</url>
+		</repository></distributionManagement>
+
 </project>
