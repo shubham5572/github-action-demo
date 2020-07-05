@@ -77,21 +77,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN}}
 
 
+  deploy:
+    - name: Add remote origin
+      run: |
+        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+    - name: Deploy to Heroku
+      run: |
+        git push heroku HEAD:master -f
 
-  docker:
-    name: Publish - Docker Hub
-    runs-on: self-hosted
-    needs: [compile,test,build]
-    env:
-      REPO: ${{ secrets.DOCKER_REPO }}
-    steps:
-      - uses: actions/checkout@v1
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKER_USERID}} -p ${{ secrets.DOCKER_PASS }}
-      - name: Build Docker image
-        run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
-      - name: Publish Docker image
-        run: docker push $REPO
+
+
+#  docker:
+#    name: Publish - Docker Hub
+#    runs-on: self-hosted
+#    needs: [compile,test,build]
+#    env:
+#      REPO: ${{ secrets.DOCKER_REPO }}
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Login to Docker Hub
+#        run: docker login -u ${{ secrets.DOCKER_USERID}} -p ${{ secrets.DOCKER_PASS }}
+#      - name: Build Docker image
+#        run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
+#      - name: Publish Docker image
+#        run: docker push $REPO
+
+
 
 
 
