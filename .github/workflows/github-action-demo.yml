@@ -87,7 +87,9 @@ jobs:
           git remote set-url heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
       - name: Deploy to Heroku
         run: |
-          git push -f heroku
+          git checkout master
+          git pull
+          git push origin master
 
 #  docker:
 #    name: Publish - Docker Hub
