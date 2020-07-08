@@ -40,7 +40,7 @@ jobs:
   build:
     runs-on: self-hosted
     name: Run mvn build and generate coverage report
-    needs: compile
+    needs: [compile,test]
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -90,6 +90,15 @@ jobs:
           git checkout master
           git pull
           git push origin master
+
+
+
+
+
+
+
+
+
 
 #  docker:
 #    name: Publish - Docker Hub
